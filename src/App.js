@@ -1,24 +1,51 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useReducer, useState } from 'react';
 import './App.css';
 
+import { searchRepositories } from './data/asyncMethods';
+import { combinedReducer, updateStore } from './data/reducers';
+
+import {
+  Search,
+  ResultList,
+} from './components';
+
+import { MainPortal } from './App.styles';
+
 function App() {
+  const [
+    {
+      repositories,
+    },
+    dispatch
+  ] = useReducer(combinedReducer, updateStore())
+
+  const [searchPhrase, updateSearchPhrase] = useState('');
+  const [isSearching, updateIsSearching] = useState(false);
+
+  const handleSubmit = async () => {
+    updateIsSearching(true);
+    const response = await (searchRepositories(searchPhrase));
+    dispatch({ type: 'updateRepositories', payload: { repositories: response }});
+    updateIsSearching(false);
+  }
+
+  console.log('store', !repositories.items)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Search
+        searchPhrase={searchPhrase}
+        onChange={e => updateSearchPhrase(e.target.value)}
+        onSubmit={handleSubmit}
+      />
+      <MainPortal>
+        {
+          !!repositories.items.length &&
+          <ResultList
+            results={repositories.items}
+          />
+        }
+      </MainPortal>
     </div>
   );
 }
