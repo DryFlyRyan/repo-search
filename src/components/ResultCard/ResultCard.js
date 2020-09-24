@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {
   LanguageDisplay,
   Stargazers,
+  UpdatedAtDisplay,
 } from '../_subcomponents'
 
 import {
@@ -44,6 +45,7 @@ const ResultCard = ({
             language &&
             <LanguageDisplay language={language} />
           }
+          <UpdatedAtDisplay updated_at={updated_at} />
         </Footer>
       </ContentContainer>
     </ResultCardContainer>

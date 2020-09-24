@@ -1,5 +1,4 @@
 import React, { useReducer, useState } from 'react';
-import './App.css';
 
 import { searchRepositories } from './data/asyncMethods';
 import { combinedReducer, updateStore } from './data/reducers';
@@ -13,36 +12,59 @@ import { MainPortal } from './App.styles';
 
 function App() {
   const [
-    {
-      repositories,
-    },
+    { repositories },
     dispatch
   ] = useReducer(combinedReducer, updateStore())
 
-  const [searchPhrase, updateSearchPhrase] = useState('');
+  const [previousSearchQuery, updatePreviousSearchQuery] = useState('')
+  const [searchQuery, updateSearchQuery] = useState('');
   const [isSearching, updateIsSearching] = useState(false);
+  const [currentPage, updateCurrentPage] = useState(1);
+  const [resultsPerPage, updateResultsPerPage] = useState(10);
 
-  const handleSubmit = async () => {
+  const searchRepos = async ({
+    page = currentPage,
+  } = {}) => {
+    if (searchQuery === '') {
+      return;
+    }
+
+    const searchPage = searchQuery === previousSearchQuery ? page : 1;
+    updateCurrentPage(searchPage)
     updateIsSearching(true);
-    const response = await (searchRepositories(searchPhrase));
+    const response = await searchRepositories({
+      q: searchQuery,
+      page: searchPage,
+      per_page: resultsPerPage,
+    });
+    updatePreviousSearchQuery(searchQuery)
     dispatch({ type: 'updateRepositories', payload: { repositories: response }});
     updateIsSearching(false);
   }
 
-  console.log('store', !repositories.items)
+  const changePage = (page) => {
+    updateCurrentPage(page);
+    searchRepos({
+      page,
+    });
+  }
 
   return (
     <div className="App">
       <Search
-        searchPhrase={searchPhrase}
-        onChange={e => updateSearchPhrase(e.target.value)}
-        onSubmit={handleSubmit}
+        isSearching={isSearching}
+        searchQuery={searchQuery}
+        onChange={e => updateSearchQuery(e.target.value)}
+        searchRepos={searchRepos}
       />
       <MainPortal>
         {
           !!repositories.items.length &&
           <ResultList
+            resultCount={repositories.total_count}
             results={repositories.items}
+            currentPage={currentPage}
+            changePage={changePage}
           />
         }
       </MainPortal>

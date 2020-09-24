@@ -1,16 +1,12 @@
 import qs from 'qs';
-const searchRepositories = async (query) => {
-  const params = qs.stringify({
-    q: query,
-  })
+const searchRepositories = async (options) => {
   const response = await fetch(
-    `https://api.github.com/search/repositories?${params}`,
+    `https://api.github.com/search/repositories?${qs.stringify(options)}`,
     {
       method: 'GET',
       headers: {
         Accept: 'application/vnd.github.v3+json'
       },
-      q: query,
     }
   );
 

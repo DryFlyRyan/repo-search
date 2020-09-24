@@ -1,25 +1,11 @@
 import styled from 'styled-components';
 import { languageColorSelector } from '../../../utils';
 
-export const LanguageDisplayContainer = styled.span`
-  font-size: 12px;
-  line-height: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  align-content: center;
-`;
-
-const ElementDefault = styled.span`
-  font-size: 12px;
-  line-height: 12px;
-
-`
-export const LanguageText = styled(ElementDefault)`
+export const LanguageText = styled.p`
   margin-left: 4px;
 `;
 
-export const LanguageDot = styled(ElementDefault)`
+export const LanguageDot = styled.span`
   box-sizing: border-box;
   height: 12px;
   width: 12px;

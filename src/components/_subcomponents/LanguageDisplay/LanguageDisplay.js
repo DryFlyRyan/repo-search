@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FooterItemContainer } from '../subcomponents.styles'
+
+
 import {
-  LanguageDisplayContainer,
   LanguageDot,
   LanguageText,
 } from './LanguageDisplay.styles';
 
 const LanguageDisplay = ({ language }) => (
-  <LanguageDisplayContainer>
+  <FooterItemContainer>
     <LanguageDot language={language} />
     <LanguageText>{language} </LanguageText>
-  </LanguageDisplayContainer>
+  </FooterItemContainer>
 )
 
 LanguageDisplay.propTypes = {

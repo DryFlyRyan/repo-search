@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { FooterItemContainer } from '../subcomponents.styles'
+
 import {
-  StargazerContainer,
   StargazerLink,
   StargazerIcon,
 } from './Stargazers.styles';
@@ -10,7 +11,7 @@ import {
 const Stargazers = ({
   stargazers_count,
 }) => (
-  <StargazerContainer>
+  <FooterItemContainer>
     <StargazerLink
       href="#"
     >
@@ -19,7 +20,7 @@ const Stargazers = ({
       </StargazerIcon>
       {stargazers_count}
     </StargazerLink>
-  </StargazerContainer>
+  </FooterItemContainer>
 );
 
 Stargazers.propTypes = {
