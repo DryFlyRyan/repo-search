@@ -27,7 +27,7 @@ const ResultList = ({
   results,
   resultCount,
   currentPage,
-  changePage,
+  changePageNumber,
 }) => {
   const ResultCards = useMemo(() => buildResults(results), [results])
   return (
@@ -40,13 +40,13 @@ const ResultList = ({
       {ResultCards}
       <PaginationContainer>
         <PaginationButton
-          onClick={() => changePage(currentPage - 1)}
+          onClick={() => changePageNumber(currentPage - 1)}
           disabled={currentPage <= 1}
         >
           {'< Previous'}
         </PaginationButton>
         <PaginationButton
-          onClick={() => changePage(currentPage + 1)}
+          onClick={() => changePageNumber(currentPage + 1)}
         >
           {'Next >'}
         </PaginationButton>

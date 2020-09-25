@@ -13,7 +13,7 @@ import {
 } from './Search.styles';
 
 const Search = ({
-  searchPhrase,
+  searchQuery,
   onChange,
   searchRepos,
   isSearching,
@@ -37,7 +37,7 @@ const Search = ({
               type="text"
               name="search"
               placeholder="Search ..."
-              value={searchPhrase}
+              value={searchQuery}
               onChange={onChange}
             />
             <LoadingIcon
@@ -52,7 +52,7 @@ const Search = ({
 };
 
 Search.propTypes = {
-  searchPhrase: PropTypes.string.isRequired,
+  searchQuery: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   searchRepos: PropTypes.func.isRequired,
 };

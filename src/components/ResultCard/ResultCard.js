@@ -25,6 +25,8 @@ const ResultCard = ({
     id,
     stargazers_count,
     updated_at,
+    owner: { login },
+    name,
   },
 }) => {
   return (
@@ -33,7 +35,7 @@ const ResultCard = ({
 
       </IconContainer>
       <ContentContainer>
-        <Title>
+        <Title to={`/${full_name}`} >
           {full_name}
         </Title>
         <Description>

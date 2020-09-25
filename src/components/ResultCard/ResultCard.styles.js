@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const ResultCardContainer = styled.li`
   min-width: 100%;
@@ -24,7 +25,7 @@ export const ContentContainer = styled.div`
   align-items: flex-start;
 `;
 
-export const Title = styled.h1`
+export const Title = styled(Link)`
   display: block;
   font-size: 16px;
   line-height: 24px;
