@@ -11,10 +11,29 @@ const spin = keyframes`
 `
 
 export const Banner = styled.header`
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
   display: flex;
+  justify-content: space-between;
   line-height: 21px;
   padding: 16px 32px;
   background-color: rgb(36, 41, 46);
+`;
+
+
+export const SelectContainer = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+  max-width: 30%;
+  > * {
+    display: inline-block;
+    min-width: 40%;
+    :first-child {
+      margin-right: 15px;
+    }
+  }
 `;
 
 export const GrowContainer = styled.div`

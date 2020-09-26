@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import mockDetails from './_mockDetails';
 
-import { getRepository } from '../../data/asyncMethods';
-import { UserSidebar } from './subcomponents';
+import { getRepository } from 'AsyncMethods';
+import {
+  UserSidebar,
+  RepoDetailsSection,
+} from './subcomponents';
 
-import { PageContainer, RepoDetailsSection } from './RepoDetail.styles';
+import { PageContainer } from './RepoDetail.styles';
 
 const RepoDetail = ({
   results,
 }) => {
   const { ownerLogin, repoName} = useParams();
   const [repo, updateRepo] = useState({});
-  const [count, updateCount] = useState(0)
 
   // Using `useEffect` here to ensure that only a single call fires on page load
   useEffect(() => {
@@ -25,20 +26,25 @@ const RepoDetail = ({
     }
 
     (async () => {
-      // const fetchedRepo = await getRepository({ ownerLogin, repoName });
-      // updateRepo(fetchedRepo);
-      updateRepo(mockDetails);
+      const fetchedRepo = await getRepository({ ownerLogin, repoName });
+      updateRepo(fetchedRepo);
     })()
   }, [results, ownerLogin, repoName])
+
+  if (!Object.keys(repo).length) {
+    return null;
+  }
+
+  console.log(repo)
 
   return (
     <PageContainer>
       <UserSidebar
-      
+        ownerLogin={ownerLogin}
       />
-      <RepoDetailsSection>
-
-      </RepoDetailsSection>
+      <RepoDetailsSection
+        repo={repo}
+      />
     </PageContainer>
   )
 };

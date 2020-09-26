@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { truncateNumber } from 'Utils';
 import { FooterItemContainer } from '../subcomponents.styles'
 
 import {
@@ -18,7 +19,7 @@ const Stargazers = ({
       <StargazerIcon>
         ☆
       </StargazerIcon>
-      {stargazers_count}
+      {truncateNumber(stargazers_count)}
     </StargazerLink>
   </FooterItemContainer>
 );

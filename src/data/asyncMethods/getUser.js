@@ -1,6 +1,6 @@
-const getRepository = async ({ ownerLogin, repoName }) => {
+const getUser = async ({ ownerLogin }) => {
   const response = await fetch(
-    `https://api.github.com/repos/${ownerLogin}/${repoName}`,
+    `https://api.github.com/users/${ownerLogin}`,
     {
       method: 'GET',
       headers: {
@@ -15,4 +15,4 @@ const getRepository = async ({ ownerLogin, repoName }) => {
   return response.json();
 }
 
-export default getRepository;
+export default getUser;

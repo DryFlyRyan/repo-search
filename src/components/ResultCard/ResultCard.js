@@ -5,13 +5,16 @@ import {
   LanguageDisplay,
   Stargazers,
   UpdatedAtDisplay,
-} from '../_subcomponents'
+} from 'Subcomponents'
+
+import {
+  TitleTextLink,
+} from 'GlobalStyles';
 
 import {
   ResultCardContainer,
   IconContainer,
   ContentContainer,
-  Title,
   Description,
   Footer,
 } from './ResultCard.styles';
@@ -35,9 +38,9 @@ const ResultCard = ({
 
       </IconContainer>
       <ContentContainer>
-        <Title to={`/${full_name}`} >
+        <TitleTextLink to={`/${full_name}`} >
           {full_name}
-        </Title>
+        </TitleTextLink>
         <Description>
           {description}
         </Description>

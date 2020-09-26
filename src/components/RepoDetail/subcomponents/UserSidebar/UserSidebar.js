@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
   faUserFriends,
@@ -9,8 +9,9 @@ import {
   faEnvelope,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { truncateNumber } from '../../../../utils';
-import { ryanDetails, danDetails } from './_mockUser';
+import { truncateNumber } from 'Utils';
+import { getUser } from 'AsyncMethods';
+// import { ryanDetails, danDetails } from './_mockUser';
 
 import {
   SidebarContainer,
@@ -44,15 +45,24 @@ const UserSidebar = ({
         location,
         email,
         bio,
-        public_repos,
-        public_gists,
         followers,
         following,
-        created_at,
-        updated_at,
+        ...rest
       },
     updateUser,
-  ] = useState(danDetails);
+  ] = useState({});
+
+
+  useEffect(() => {
+    (async () => {
+      const fetchedUser = await getUser({ ownerLogin });
+      updateUser(fetchedUser);
+    })()
+  }, [ownerLogin])
+
+  if (!Object.keys(rest).length) {
+    return null;
+  }
 
   return (
     <SidebarContainer >
@@ -121,6 +131,9 @@ const UserSidebar = ({
   );
 }
 
+UserSidebar.propTypes = {
+  ownerLogin: PropTypes.string.isRequired,
+}
 
 
 export default UserSidebar;

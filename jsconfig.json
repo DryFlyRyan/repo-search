@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "AsyncMethods": ["src/data/asyncMethods/index"],
+      "Reducers": ["src/data/reducers/index"],
+      "Components":  ["src/components/index"],
+      "Subcomponents": ["src/components/_subcomponents/index"],
+      "Components/*": ["src/components/*"],
+      "GlobalStyles": ["src/globalStyles"],
+      "Utils": ["src/utils/index"]
+    }
+  }
+}

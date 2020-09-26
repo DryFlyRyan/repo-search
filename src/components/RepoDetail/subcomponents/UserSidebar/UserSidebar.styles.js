@@ -75,22 +75,18 @@ export const GithubStatsContainer = styled.div`
 
 export const StatItem = styled.span`
   margin: 0 3px;
-  /* font-size: 14px;
-  line-height: 14px;
-  color: rgb(88, 96, 105); */
   > strong {
     font-weight: 600;
   }
 `;
 
 export const StatIcon = styled(FontAwesomeIcon)`
+  font-size: 16px;
+  line-height: 24px;
   margin-left: 3px;
   :first-child {
     margin-left: 0;
   }
-  /* color: rgb(88, 96, 105);
-  font-size: 14px;
-  line-height: 14px; */
 `;
 
 export const PersonalStatsContainer = styled.ul`

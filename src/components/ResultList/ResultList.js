@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import ResultCard from '../ResultCard/ResultCard';
+import ResultCard from 'Components/ResultCard/ResultCard';
 
 import {
   StyledResultListContainer,
