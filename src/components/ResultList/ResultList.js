@@ -57,6 +57,9 @@ const ResultList = ({
 
 ResultList.propTypes = {
   results: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  resultCount: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  changePageNumber: PropTypes.func.isRequired,
 };
 
 export default ResultList;

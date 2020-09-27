@@ -1,0 +1,8 @@
+node_modules/
+public/
+test/
+cdnDist/
+app/cdnDist/
+app/config/
+
+serviceWorker.js

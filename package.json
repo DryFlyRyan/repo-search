@@ -40,6 +40,8 @@
     ]
   },
   "devDependencies": {
+    "eslint": "^7.10.0",
+    "eslint-plugin-react": "^7.21.2",
     "react-app-rewire-alias": "^0.1.6",
     "react-app-rewired": "^2.1.6"
   }

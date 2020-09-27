@@ -90,6 +90,11 @@ Search.propTypes = {
   searchQuery: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   searchRepos: PropTypes.func.isRequired,
+  isSearching: PropTypes.bool.isRequired,
+  searchOrder: PropTypes.shape().isRequired,
+  searchSort: PropTypes.shape().isRequired,
+  onOrderChange: PropTypes.func.isRequired,
+  onSortChange: PropTypes.func.isRequired,
 };
 
 export default Search;

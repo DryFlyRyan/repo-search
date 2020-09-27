@@ -8,7 +8,7 @@ const truncateNumber = (number) => {
 
   const preppedNumber = number.toString().split('');
 
-  const numberSlices = preppedNumber.reduceRight((numArr, char, index) => {
+  const numberSlices = preppedNumber.reduceRight((numArr, char) => {
     if (!numArr.length || numArr[0].length === 3) {
       numArr.unshift([char]);
     } else {
