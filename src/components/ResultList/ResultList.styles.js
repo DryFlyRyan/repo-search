@@ -11,6 +11,7 @@ export const CountText = styled.h3`
 `;
 
 export const StyledResultListContainer = styled.ul`
+  box-sizing: padding-box;
   width: 50%;
   max-width: 50%;
   display: flex;
@@ -18,6 +19,12 @@ export const StyledResultListContainer = styled.ul`
   justify-content: center;
   align-content: center;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    padding-inline-start: 20px;
+    padding-inline-end: 20px;
+    width: 100%;
+    max-width: 100%;
+  }
 `;
 
 export const PaginationContainer = styled.div`

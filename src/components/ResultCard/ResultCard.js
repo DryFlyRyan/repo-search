@@ -23,13 +23,9 @@ const ResultCard = ({
   result: {
     description,
     language,
-    license,
     full_name,
-    id,
     stargazers_count,
     updated_at,
-    owner: { login },
-    name,
   },
 }) => {
   return (
@@ -41,9 +37,11 @@ const ResultCard = ({
         <TitleTextLink to={`/${full_name}`} >
           {full_name}
         </TitleTextLink>
-        <Description>
-          {description}
-        </Description>
+        {!!description &&        
+          <Description>
+            {description}
+          </Description>
+        }
         <Footer>
           <Stargazers stargazers_count={stargazers_count} />
           {

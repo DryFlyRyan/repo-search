@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+// import { mockRepo, altRepo } from './_mockDetails';
 import { getRepository } from 'AsyncMethods';
 import {
   UserSidebar,
   RepoDetailsSection,
 } from './subcomponents';
 
-import { PageContainer } from './RepoDetail.styles';
+import { PageContainer, Divider } from './RepoDetail.styles';
 
 const RepoDetail = ({
   results,
@@ -28,7 +29,7 @@ const RepoDetail = ({
     (async () => {
       const fetchedRepo = await getRepository({ ownerLogin, repoName });
       updateRepo(fetchedRepo);
-    })()
+    })();
   }, [results, ownerLogin, repoName])
 
   if (!Object.keys(repo).length) {
@@ -42,6 +43,7 @@ const RepoDetail = ({
       <UserSidebar
         ownerLogin={ownerLogin}
       />
+      <Divider />
       <RepoDetailsSection
         repo={repo}
       />

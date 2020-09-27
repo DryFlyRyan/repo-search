@@ -19,6 +19,11 @@ export const Banner = styled.header`
   line-height: 21px;
   padding: 16px 32px;
   background-color: rgb(36, 41, 46);
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    min-width: 100%;
+    flex-wrap: wrap;
+  }
 `;
 
 
@@ -32,6 +37,16 @@ export const SelectContainer = styled.div`
     min-width: 40%;
     :first-child {
       margin-right: 15px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 15px;
+    width: 100%;
+    min-width: 100%;
+    flex-wrap: wrap;
+    > * {
+      flex: 1 1 auto;
     }
   }
 `;
@@ -49,6 +64,10 @@ export const GrowContainer = styled.div`
   :focus-within {
     max-width: 30%;
     color: rgb(36, 41, 46);
+  }
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+    min-width: 100%;
   }
 `;
 

@@ -36,11 +36,14 @@ export const Title = styled(Link)`
 export const Description = styled.p`
   display: block;
   font-size: 14px;
-  line-height: 21px;
+  line-height: 16px;
   overflow-wrap: break-word;
   margin: 0;
   padding: 0;
   margin-bottom: 4px;
+  @media only screen and (max-width: 768px) {
+    line-height: 16px;
+  }
 `;
 
 export const LineContainer = styled.div`
@@ -52,5 +55,9 @@ export const Footer = styled.article`
   flex-direction: row;
   align-items: flex-end;
   width: 100%;
+  @media only screen and (max-width: 768px) {
+    margin-top: 5px;
+    flex-wrap: wrap;
+  }
 `;
 

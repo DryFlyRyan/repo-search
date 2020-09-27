@@ -79,8 +79,6 @@ function App() {
     });
   }
 
-  console.log('repos', repositories);
-
   return (
     <div className="App">
         <Search

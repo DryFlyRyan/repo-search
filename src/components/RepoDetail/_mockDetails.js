@@ -1,4 +1,4 @@
-export const ryanRepo = {
+export const mockRepo = {
   "id":238332981,
   "node_id":"MDEwOlJlcG9zaXRvcnkyMzgzMzI5ODE=",
   "name":"IssueTracker",

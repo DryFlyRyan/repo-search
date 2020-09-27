@@ -8,13 +8,27 @@ export const SidebarContainer = styled.section`
   margin: 0;
   margin-left: 10px;
   @media only screen and (max-width: 768px) {
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+`;
+
+export const TopSectionContainer = styled.div`
+  @media only screen and (max-width: 768px) {
+    display: flex;
   }
 `;
 
 export const AvatarContainer = styled.div`
   width: 100%;
   margin-bottom: 10px;
+  @media only screen and (max-width: 768px) {
+    height: 85px;
+    width: 85px;
+    padding: 5px 10px 5px 0;
+    margin-bottom: 0;
+  }
 `;
 
 export const AvatarImage = styled.img`
@@ -27,11 +41,21 @@ export const AvatarImage = styled.img`
   }
 `;
 
+export const BottomSectionContainer = styled.div`
+  @media only screen and (max-width: 768px) {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: row nowrap;
+    flex-direction: column;
+  }
+`;
+
 export const UserDetailsContainer = styled.div`
   margin-top: 15px;
   width: 100%;
   @media only screen and (max-width: 768px) {
     display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -52,6 +76,9 @@ export const HandleContainer = styled.span`
 
 export const BioContainer = styled.div`
   margin-top: 15px;
+  @media only screen and (max-width: 768px) {
+    display: none;
+  }
 `;
 
 export const BioText = styled.span`
@@ -59,34 +86,60 @@ export const BioText = styled.span`
   color: rgb(36, 41, 46);
   overflow-wrap: break-word;
   line-height: 24px;
+
 `;
 
 export const GithubStatsContainer = styled.div`
-  margin-top: 15px;
   width: 100%;
-  display: flex wrap;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: flex-end;
   align-content: flex-end;
-  margin-left: 3px;
+  margin-top: 15px;
+  /* margin-left: 3px; */
   font-size: 14px;
   line-height: 14px;
   color: rgb(88, 96, 105);
+  * {
+    flex: 1 1 auto;
+  }
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-top: 5px;
+  }
+`;
+
+export const BulletSpan = styled.span`
+  flex: 1 1 auto;
+  @media only screen and (max-width: 768px) {
+  }
+`;
+
+export const StatContainer = styled.div`
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex: 1 1 auto;
+  @media only screen and (max-width: 768px) {
+  }
 `;
 
 export const StatItem = styled.span`
-  margin: 0 3px;
+  margin-left: 3px;
   > strong {
     font-weight: 600;
+  }
+  :first-child {
+    margin: 0;
   }
 `;
 
 export const StatIcon = styled(FontAwesomeIcon)`
   font-size: 16px;
   line-height: 24px;
-  margin-left: 3px;
-  :first-child {
-    margin-left: 0;
-  }
 `;
 
 export const PersonalStatsContainer = styled.ul`
