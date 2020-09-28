@@ -1,8 +1,8 @@
-module.exports = {
+{
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true,
+        "jest": true
     },
     "extends": [
         "eslint:recommended",
@@ -20,6 +20,6 @@ module.exports = {
     ],
     "rules": {
       "no-unused-vars": 1,
-      "react/prop-types": 1,
+      "react/prop-types": 1
     }
-};
+}
