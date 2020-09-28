@@ -36,8 +36,6 @@ const RepoDetail = ({
     return null;
   }
 
-  console.log(repo)
-
   return (
     <PageContainer>
       <UserSidebar
