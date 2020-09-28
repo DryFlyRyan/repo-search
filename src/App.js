@@ -1,6 +1,11 @@
 // external
 import React, { useReducer, useState } from 'react';
-import { Switch, Route, useHistory } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  useHistory,
+  BrowserRouter as Router,
+} from "react-router-dom";
 
 // internal
 import { searchRepositories } from 'AsyncMethods';
@@ -81,6 +86,7 @@ function App() {
 
   return (
     <div className="App">
+      <Router>
         <Search
           isSearching={isSearching}
           searchQuery={searchQuery}
@@ -112,6 +118,7 @@ function App() {
             </Route>
           </Switch>
         </MainPortal>
+      </Router>
     </div>
   );
 }

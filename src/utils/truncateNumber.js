@@ -1,10 +1,14 @@
+// TODO: THIS ONLY "ROUNDS" DOWN CURRENTLY. TO BE TOTALLY ACCURATE
+// IT SHOULD PROBABLY ROUND APPROPRIATELY
+
 const truncateNumber = (number) => {
-  if (
-    typeof number !== 'number'
-    || number < 1000
-  ) {
+  if (typeof number !== 'number') {
     return number;
-  } 
+  }
+
+  if (number < 1000) {
+    return number.toString();
+  }
 
   const preppedNumber = number.toString().split('');
 

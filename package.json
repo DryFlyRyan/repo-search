@@ -44,5 +44,22 @@
     "eslint-plugin-react": "^7.21.2",
     "react-app-rewire-alias": "^0.1.6",
     "react-app-rewired": "^2.1.6"
+  },
+  "jest": {
+    "verbose": true,
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/test/xformsAndMocks/fileMock.js",
+      "^testUtils$": "<rootDir>/test/utils",
+      "^AsyncMethods$": "<rootDir>/src/data/asyncMethods/index",
+      "^Reducers$": "<rootDir>/src/data/reducers/index",
+      "^Components$":  "<rootDir>/src/components/index",
+      "^Subcomponents$": "<rootDir>/src/components/_subcomponents/index",
+      "^Components/(.*)$": "<rootDir>/src/components/$1",
+      "^GlobalStyles$": "<rootDir>/src/globalStyles",
+      "^Utils$": "<rootDir>/src/utils/index"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/*.test.js"
+    ]
   }
 }
